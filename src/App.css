@@ -109,14 +109,14 @@ h2 {
 }
 
 .x-button {
-  background: white;
-  color: #6B7280;
+  background: transparent;
+  color: navajowhite;
   border: none;
   cursor: pointer;
 }
 
 .x-button:hover {
-  color: #1F2937;
+  color: darkred;
 }
 
 .x-button-icon {
