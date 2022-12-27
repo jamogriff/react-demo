@@ -12,6 +12,10 @@ export default function ToDoForm(props: Props) {
   const addTodo = (event: FormEvent) => {
     event.preventDefault(); // don't execute form action
 
+      if (props.todoInput.trim().length === 0) {
+          return;
+      }
+
     let lastTodo = props.todos.at(-1);
 
     let newTodo: ToDo = {
@@ -19,6 +23,7 @@ export default function ToDoForm(props: Props) {
       title: props.todoInput,
       isComplete: false
     };
+
     props.onTodoSubmit([...props.todos, newTodo]);
     props.onTodoInputChange('');
   };

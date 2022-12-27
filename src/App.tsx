@@ -12,6 +12,20 @@ function App() {
   const [todos, setTodos] = useState(initialToDos);
   const [todoInput, setTodoInput] = useState('');
 
+  const deleteToDo = (id: number) => {
+    setTodos([...todos].filter(todo => todo.id !== id));
+  }
+
+  const completeToDo = (id: number) => {
+    let updatedTodos = todos.map(todo => {
+      if (todo.id === id) {
+        todo.isComplete = !todo.isComplete;
+      }
+
+      return todo;
+    });
+    setTodos(updatedTodos);
+  }
   return (
     <div className="todo-app-container">
         <div className="todo-app">
@@ -28,11 +42,13 @@ function App() {
             {todos.map((todo, index) => (
               <li key={todo.id} className="todo-item-container">
                 <div className="todo-item">
-                  <input type="checkbox" />
-                  <span className="todo-item-label">{todo.title}</span>
+                  <input onChange={() => completeToDo(todo.id)} type="checkbox" checked={todo.isComplete}/>
+                  <span className={`todo-item-label ${todo.isComplete ? 'line-through' : ''}`}>
+                    {todo.title}
+                  </span>
                    <input type="text" className="todo-item-input" value="Finish React Series" />
                 </div>
-                <button className="x-button">
+                <button onClick={() => deleteToDo(todo.id)} className="x-button">
                   <svg
                     className="x-button-icon"
                     fill="none"
@@ -56,7 +72,7 @@ function App() {
               <div className="button">Check All</div>
             </div>
 
-            <span>3 items remaining</span>
+            <span>{todos.filter((todo) => !todo.isComplete).length} items remaining</span>
           </div>
 
           <div className="other-buttons-container">
