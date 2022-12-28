@@ -1,5 +1,5 @@
 import React, { FormEvent, ChangeEvent } from 'react';
-import { ToDo } from './interfaces';
+import { ToDo } from '../interfaces';
 
 export interface Props {
   todoInput: string;
@@ -45,6 +45,7 @@ export default function ToDoForm(props: Props) {
     <form action="#" onSubmit={addTodo}>
       <input
         type="text"
+        aria-label="create-todo-input"
         value={props.todoInput}
         onChange={handleInput}
         className="todo-input"
