@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { SyntheticEvent, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import { initialToDos } from './fixtures';
 import ToDoForm from './ToDoForm';
-import { ElementTargetedReactEvent } from './interfaces';
 
 function App() {
   // State managed here because it's the common parent of
@@ -40,20 +39,19 @@ function App() {
 
   // @t3 types and generics
   const updateToDo = (
-    event: ElementTargetedReactEvent<HTMLInputElement>,
-    id: number
+    event: SyntheticEvent<HTMLElement>,
+    id: number,
+    cancelled?: boolean
   ) => {
-    let { target } = event; // destructure assignment
-    console.log(target.value); // error with intersection type
-
+    let target = event.target as HTMLInputElement;
     let updatedTodos = todos.map(todo => {
       if (todo.id === id) {
-        todo.isInEditMode = false;
-
-        if (target.value.trim().length === 0) {
+        if (target.value.trim().length === 0 || cancelled) {
+          todo.isInEditMode = false;
           return todo;
         }
 
+        todo.isInEditMode = false;
         todo.title = target.value;
       }
 
@@ -101,6 +99,13 @@ function App() {
                     className="todo-item-input"
                     defaultValue={todo.title}
                     onBlur={event => updateToDo(event, todo.id)}
+                    onKeyDown={event => {
+                      if (event.key === 'Enter') {
+                        updateToDo(event, todo.id);
+                      } else if (event.key === 'Escape') {
+                        updateToDo(event, todo.id, true);
+                      }
+                    }}
                     autoFocus
                   />
                 )}

@@ -9,7 +9,8 @@ export interface ToDo {
 
 // @t2 types and generics
 // Example here: https://freshman.tech/snippets/typescript/fix-value-not-exist-eventtarget/
-export type ElementTargetedReactEvent<Type extends HTMLElement> =
+// This type isn't implemented since it cannot handle a KeyDownEvent
+export type ElementTargetedReactEvent<Type extends Element> =
   SyntheticEvent & {
     target: Type;
   };
