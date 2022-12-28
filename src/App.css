@@ -74,6 +74,7 @@ h2 {
 
 .todo-list {
   margin-top: 32px;
+  padding-inline-start: 10px;
 }
 
 .todo-item-container {
@@ -100,7 +101,7 @@ h2 {
   width: 100%;
   border: none;
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  padding: 8px;
+  padding: 6px;
   font-size: 18px;
 }
 
@@ -169,4 +170,13 @@ h2 {
   margin-top: 22px;
   padding-top: 16px;
   border-top: 1px solid lightgray;
+}
+
+input:focus {
+  outline-color: #61dafb;
+}
+
+/* todo */
+input[type="checkbox"]:checked {
+  background: black;
 }

@@ -1,5 +1,7 @@
 # Getting Started with Create React App
 
+Noteworthy mentions of typescript and react are marked with `@t1, @t2, ...` and `@r` respectively.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -44,3 +46,5 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+The Node community seems... [interesting](https://github.com/nodejs/node/discussions/37857). [npm smh](https://www.npmjs.com/package/esm-ts-node?activeTab=explore)
