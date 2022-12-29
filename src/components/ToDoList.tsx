@@ -8,11 +8,13 @@ interface Props {
 }
 
 export default function ToDoList(props: Props) {
+  const todos = props.todos;
+
   return (
     <>
       <ul className="todo-list">
-        {props.todos.map((todo, index) => (
-          <ListItem key={todo.id} todo={todo} todos={props.todos} saveTodos={props.saveTodos} />
+        {todos.map((todo, index) => (
+          <ListItem key={todo.id} todo={todo} todos={todos} saveTodos={props.saveTodos} />
         ))}
       </ul>
 
@@ -22,7 +24,7 @@ export default function ToDoList(props: Props) {
         </div>
 
         <span>
-          {props.todos.filter(todo => !todo.isComplete).length} items remaining
+          {todos.filter(todo => !todo.isComplete).length} items remaining
         </span>
       </div>
 

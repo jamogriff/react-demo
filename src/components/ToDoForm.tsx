@@ -1,11 +1,11 @@
-import React, { FormEvent, ChangeEvent } from 'react';
+import React, { FormEvent, ChangeEvent, Dispatch, SetStateAction } from 'react';
 import { ToDo } from '../interfaces';
 
 export interface Props {
   todoInput: string;
-  onTodoInputChange: any;
+  onTodoInputChange: Dispatch<SetStateAction<string>>;
   todos: ToDo[];
-  onTodoSubmit: any;
+  onTodoSubmit: Dispatch<SetStateAction<ToDo[]>>;
 }
 
 export default function ToDoForm(props: Props) {

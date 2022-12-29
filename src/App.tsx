@@ -25,7 +25,14 @@ function App() {
           todos={todos}
           onTodoSubmit={setTodos}
         />
-        <ToDoList todos={todos} saveTodos={setTodos} />
+
+        {todos.length > 0 ? (
+          <ToDoList todos={todos} saveTodos={setTodos} />
+        ) : (
+          <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+            <h3>You're all caught up!</h3>
+          </div>
+        )}
       </div>
     </div>
   );
