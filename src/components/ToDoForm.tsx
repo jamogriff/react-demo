@@ -20,7 +20,8 @@ export default function ToDoForm(props: Props) {
     let lastTodo = props.todos.at(-1);
 
     let newTodo: ToDo = {
-      id: lastTodo?.id ? lastTodo.id + 1 : 0,
+      // 0 is falsy in JS
+      id: lastTodo?.id || lastTodo?.id === 0 ? lastTodo.id + 1 : 0,
       title: props.todoInput,
       isComplete: false,
       isInEditMode: false,

@@ -11,6 +11,7 @@ function App() {
   // https://beta.reactjs.org/learn/thinking-in-react#step-4-identify-where-your-state-should-live
   const [todos, setTodos] = useState(initialToDos);
   const [todoInput, setTodoInput] = useState('');
+  const [activeFilter, setActiveFilter] = useState('all');
   const inputField = useRef(null);
 
   // @r components are mounted twice in development
@@ -43,7 +44,12 @@ function App() {
         />
 
         {todos.length > 0 ? (
-          <ToDoList todos={todos} saveTodos={setTodos} />
+          <ToDoList
+            todos={todos}
+            saveTodos={setTodos}
+            filter={activeFilter}
+            updateFilter={setActiveFilter}
+          />
         ) : (
           <div style={{ textAlign: 'center', marginTop: '2rem' }}>
             <h3>You're all caught up!</h3>
