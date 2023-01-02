@@ -1,4 +1,4 @@
-import React, { FormEvent, ChangeEvent, Dispatch, SetStateAction } from 'react';
+import React, { FormEvent, ChangeEvent, Dispatch, SetStateAction, MutableRefObject } from 'react';
 import { ToDo } from '../interfaces';
 
 export interface Props {
@@ -6,6 +6,7 @@ export interface Props {
   onTodoInputChange: Dispatch<SetStateAction<string>>;
   todos: ToDo[];
   onTodoSubmit: Dispatch<SetStateAction<ToDo[]>>;
+  inputRef: MutableRefObject<any>;
 }
 
 export default function ToDoForm(props: Props) {
@@ -45,6 +46,7 @@ export default function ToDoForm(props: Props) {
     <form action="#" onSubmit={addTodo}>
       <input
         type="text"
+        ref={props.inputRef}
         aria-label="create-todo-input"
         value={props.todoInput}
         onChange={handleInput}
