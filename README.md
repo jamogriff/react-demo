@@ -4,6 +4,12 @@ Noteworthy mentions of typescript and react are marked with `@t1, @t2, ...` and 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## ToDo (functionality-wise)
+- React Transition Group lib for CSS transitions
+- custom Hooks (toggling and localStorage)
+- client side routing with react-router
+- api fetching (react-query lib)
+
 ## Available Scripts
 
 In the project directory, you can run:
